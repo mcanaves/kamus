@@ -56,6 +56,8 @@ namespace Kamus.Controllers
             }
 
             var id = serviceAccountUserName.Replace(ServiceAccountUsernamePrefix, "");
+            int position = id.IndexOf(":");
+            id = id.Substring(position + 1);
 
             mAuditLogger.Information("Decryption request started, SourceIP: {sourceIp}, ServiceAccount User Name: {id}",
                 Request.HttpContext.Connection.RemoteIpAddress,

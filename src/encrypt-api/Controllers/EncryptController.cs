@@ -42,7 +42,7 @@ namespace Kamus.Controllers
                     body.ServiceAccountName,
                     body.NamespaceName);
 
-            var encryptedData = await mKeyManagement.Encrypt(body.Data, $"{body.NamespaceName}:{body.ServiceAccountName}");
+            var encryptedData = await mKeyManagement.Encrypt(body.Data, body.ServiceAccountName);
 
             if (body.ServiceAccountName == "default")
             {
